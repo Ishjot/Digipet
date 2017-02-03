@@ -11,9 +11,9 @@
 		<java classname="Digipet" classpath="build/" />
 	</target>
 
-	<target>
+	<target name="clean" description="remove build dir">
 		<delete failonerror="false" verbose="true">
-			<filset dir="." includes="*.class" />
+			<filset dir="build/" includes="*.class" />
 		</delete>
 	</target>
 
