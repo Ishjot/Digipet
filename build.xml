@@ -1,0 +1,13 @@
+<project default="compile">
+
+	<!-- build.xml for Digipet, in CS48 -->
+
+	<target name="compile" description="compile the program">
+		<javac srcdir="src/" destdir="bin/" includeantruntime="false" />
+	</target>
+
+	<target name="run" description="run the program">
+		<java classname="Digipet" classpath="bin/" />
+	</target>
+
+</project>
