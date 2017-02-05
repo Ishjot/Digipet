@@ -5,6 +5,10 @@
 	<target name="compile" description="compile the program">
 		<javac debug="true" debuglevel="lines,source" 
 		       srcdir="src/" destdir="build/" includeantruntime="false" />
+		<classpath>
+			<pathelement location="." />
+			<pathelement location="lib/junit-4.8.2.jar" />
+		</classpath>
 	</target>
 
 	<target name="run" depends="compile" description="run the program">
@@ -13,8 +17,23 @@
 
 	<target name="clean" description="remove build dir">
 		<delete failonerror="false" verbose="true">
-			<filset dir="build/" includes="*.class" />
+			<fileset dir="build/" includes="*.class" />
 		</delete>
+	</target>
+
+	<target name="text" depends="compile">
+		<junit haltonerror="no" haltonfailure="no">
+			<classpath>
+				<pathelement location="lib/junit-4.8.2.jar" />
+				<pathelement location="." />
+			</classpath>
+			<batchtest fork="yes">
+				<fileset dir=".">
+					<include name="*Test.java" />
+				</fileset>
+			</batchtest>
+			<formatter type="plain" usefile="false" />
+		</junit>
 	</target>
 
 </project>
