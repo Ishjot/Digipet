@@ -1,34 +1,35 @@
 <project default="compile">
 
 	<!-- build.xml for Digipet, in CS48 -->
+	<!-- built from a tutorial for CS56 Lab 02 by Conrad -->
+	<!-- https://foo.cs.ucsb.edu/56wiki/index.php/W16:Labs:lab02 -->
 
 	<target name="compile" description="compile the program">
+		<mkdir dir="build" />
 		<javac debug="true" debuglevel="lines,source" 
-		       srcdir="src/" destdir="build/" includeantruntime="false" />
+		       srcdir="src" destdir="build" includeantruntime="false" />
 		<classpath>
-			<pathelement location="." />
+			<pathelement location="build" />
 			<pathelement location="lib/junit-4.8.2.jar" />
 		</classpath>
 	</target>
 
 	<target name="run" depends="compile" description="run the program">
-		<java classname="Digipet" classpath="build/" />
+		<java classname="Digipet" classpath="build" />
 	</target>
 
 	<target name="clean" description="remove build dir">
-		<delete failonerror="false" verbose="true">
-			<fileset dir="build/" includes="*.class" />
-		</delete>
+		<delete dir="build" quiet="true" />
 	</target>
 
-	<target name="text" depends="compile">
+	<target name="test" depends="compile">
 		<junit haltonerror="no" haltonfailure="no">
 			<classpath>
 				<pathelement location="lib/junit-4.8.2.jar" />
-				<pathelement location="." />
+				<pathelement location="build" />
 			</classpath>
 			<batchtest fork="yes">
-				<fileset dir=".">
+				<fileset dir="src">
 					<include name="*Test.java" />
 				</fileset>
 			</batchtest>
