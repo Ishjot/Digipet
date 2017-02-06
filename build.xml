@@ -1,7 +1,7 @@
-<project default="compile">
+<project default="run">
 
 	<!-- build.xml for Digipet, in CS48 -->
-	<!-- built from a tutorial for CS56 Lab 02 by Conrad -->
+	<!-- built from a tutorial for CS56 Lab 02 by Professor Conrad -->
 	<!-- https://foo.cs.ucsb.edu/56wiki/index.php/W16:Labs:lab02 -->
 
 	<target name="compile" description="compile the program">
@@ -16,7 +16,7 @@
 	</target>
 
 	<target name="run" depends="compile" description="run the program">
-		<java classname="Digipet" classpath="build" />
+		<java classname="Digipet" classpath="build" fork="true" />
 	</target>
 
 	<target name="clean" description="remove build dir">
