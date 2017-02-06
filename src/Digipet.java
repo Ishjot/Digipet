@@ -13,15 +13,7 @@ public class Digipet implements ActionListener {
 		gui.InitGui();
 	}
 
-	public Digipet() {
-		JFrame frame = new JFrame();
-		JButton button = new JButton("Play");
-
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(button);
-		frame.setSize(300,300);
-		frame.setVisible(true);
-	}
+	public Digipet() { }
 
 	public void InitGui() {
 		frame = new JFrame();
@@ -29,9 +21,13 @@ public class Digipet implements ActionListener {
 		
 		button.addActionListener(this);
 
-		frame.setDefaultCloserOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(button);
 		frame.setSize(600, 600);
 		frame.setVisible(true);
+	}
+
+	public void actionPerformed(ActionEvent event) {
+		button.setText("You clicked \"play\"");
 	}
 }
