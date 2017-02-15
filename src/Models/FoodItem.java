@@ -8,6 +8,4 @@ public abstract class FoodItem extends Item{
     int getFoodFillUpRate () {
 	return this.FoodFillUpRate;
     }
-
-
-    
+}    
