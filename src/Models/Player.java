@@ -1,7 +1,7 @@
 /**
  * Created by Calvin on 2/11/2017.
  */
-public class player {
+public class Player {
 
     Pet playerPet;
     int currency;
