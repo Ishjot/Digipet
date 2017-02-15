@@ -17,6 +17,6 @@ public class Clock {
 	tTotal = tTotal + getElapsed(); // write to file
     }
     public long getElapsed() {
-	return System.currentTimeMillise() - tStart;
+	return System.currentTimeMillis() - tStart;
     }
 }

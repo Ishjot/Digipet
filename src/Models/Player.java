@@ -12,7 +12,7 @@ public class Player {
         return;
     }
 
-    public abstract void petPlay();
+    //public void petPlay();
 
     public void sellItem(Item trash){
         return;
