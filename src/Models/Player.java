@@ -17,8 +17,8 @@ public class Player {
 
     public Player(){
         //put as many items into invetory as required and set them to some value at the beginning
-        inventory.put(, 0);
-        inventory.put(, 5);
+        //inventory.put(, 0);
+        //inventory.put(, 5);
     }
 
     //****************************getter & setters**********************************//
