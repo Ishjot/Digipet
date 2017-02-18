@@ -5,31 +5,39 @@ import java.awt.event.*;
 /*
  * The main GUI for the application
  */
-public class Digipet {
+public class WelcomeScreenView {
+	private JFrame mainFrame = null;
 
-	public static void main(String[] args) {
-		Digipet gui = new Digipet();
-		gui.InitGui();
+	public JFrame getFrame() {
+		return mainFrame;
 	}
 
-	public Digipet() { }
-
-	public void InitGui() {
-		final JFrame mainFrame = new JFrame("Digipet");
+	public WelcomeScreenView() {
+		mainFrame = new JFrame("Digipet");
 
 		JButton playButton = new JButton("Play");
 		initButton(playButton);
-
 		playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Play was pressed!");
 			}
 		});
 
+		JButton howToPlayButton = new JButton("How to Play");
+		initButton(howToPlayButton);
+		howToPlayButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("How to Play was pressed!");
+			}
+		});
+
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.add(playButton);
+		mainFrame.add(howToPlayButton);
 		mainFrame.setSize(600, 600);
-		mainFrame.setVisible(true);
+		mainFrame.getContentPane().setLayout(new GridLayout(2,1));
+		mainFrame.pack();
+		//mainFrame.setVisible(true);
 	}
 
 	public void initButton(JButton button) {
