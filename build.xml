@@ -8,34 +8,15 @@
 		<mkdir dir="build" />
 		<javac debug="true" debuglevel="lines,source" 
 		       srcdir="src" destdir="build" includeantruntime="false" >
-			<classpath>
-				<pathelement location="build" />
-				<pathelement location="lib/junit-4.8.2.jar" />
-			</classpath>
 		</javac>
 	</target>
 
 	<target name="run" depends="compile" description="run the program">
-		<java classname="Digipet" classpath="build" fork="true" />
+		<java classname="Run" classpath="build" fork="true" />
 	</target>
 
 	<target name="clean" description="remove build dir">
 		<delete dir="build" quiet="true" />
-	</target>
-
-	<target name="test" depends="compile">
-		<junit haltonerror="no" haltonfailure="no">
-			<classpath>
-				<pathelement location="lib/junit-4.8.2.jar" />
-				<pathelement location="build" />
-			</classpath>
-			<batchtest fork="yes">
-				<fileset dir="src">
-					<include name="*Test.java" />
-				</fileset>
-			</batchtest>
-			<formatter type="plain" usefile="false" />
-		</junit>
 	</target>
 
 </project>
