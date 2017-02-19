@@ -5,15 +5,12 @@ import java.awt.event.*;
 /*
  * The main GUI for the application
  */
-public class WelcomeScreenView {
-	private JFrame mainFrame = null;
-
-	public JFrame getFrame() {
-		return mainFrame;
-	}
-
-	public WelcomeScreenView() {
-		mainFrame = new JFrame("Digipet");
+public class WelcomeScreenView extends ViewBase {
+	public WelcomeScreenView(JFrame frame) {
+		if(frame == null)
+			MainFrame = new JFrame("Digipet");
+		else
+			MainFrame = frame;
 
 		JButton playButton = new JButton("Play");
 		initButton(playButton);
@@ -28,16 +25,17 @@ public class WelcomeScreenView {
 		howToPlayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("How to Play was pressed!");
+				controller.navigateTo("HowToPlayScreenView");
 			}
 		});
 
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(playButton);
-		mainFrame.add(howToPlayButton);
-		mainFrame.setSize(600, 600);
-		mainFrame.getContentPane().setLayout(new GridLayout(2,1));
-		mainFrame.pack();
-		//mainFrame.setVisible(true);
+		MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		MainFrame.add(playButton);
+		MainFrame.add(howToPlayButton);
+		MainFrame.setSize(600, 600);
+		MainFrame.getContentPane().setLayout(new GridLayout(2,1));
+		MainFrame.pack();
+		//MainFrame.setVisible(true);
 	}
 
 	public void initButton(JButton button) {
