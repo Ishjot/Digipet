@@ -23,7 +23,20 @@ public class HowToPlayScreenView extends ViewBase {
 
 		JScrollPane scroll = new JScrollPane(text);
 
+		JButton backToWelcomeScreenButton = new JButton("Back to Menu");
+		initButton(backToWelcomeScreenButton);
+		backToWelcomeScreenButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				System.out.println("Back to welcome was pressed!");
+				controller.navigateTo("WelcomeScreenView");
+			}
+		});
+
+		//MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MainFrame.add(scroll);
+		MainFrame.add(backToWelcomeScreenButton);
+		//MainFrame.setSize(600, 600);
+		//MainFrame.getContentPane().setLayout(new GridLayout(2,1));
 		MainFrame.pack();
 	}
 }

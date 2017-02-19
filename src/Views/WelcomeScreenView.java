@@ -12,6 +12,8 @@ public class WelcomeScreenView extends ViewBase {
 		else
 			MainFrame = frame;
 
+		MainFrame.getContentPane().removeAll();
+
 		JButton playButton = new JButton("Play");
 		initButton(playButton);
 		playButton.addActionListener(new ActionListener() {
@@ -35,13 +37,5 @@ public class WelcomeScreenView extends ViewBase {
 		MainFrame.setSize(600, 600);
 		MainFrame.getContentPane().setLayout(new GridLayout(2,1));
 		MainFrame.pack();
-		//MainFrame.setVisible(true);
-	}
-
-	public void initButton(JButton button) {
-		Dimension buttonDim = new Dimension(600, 150);
-		button.setPreferredSize(buttonDim);
-		button.setBackground(Color.BLACK);
-		button.setForeground(Color.WHITE);
 	}
 }

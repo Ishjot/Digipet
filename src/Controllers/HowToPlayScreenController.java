@@ -10,7 +10,13 @@ public class HowToPlayScreenController extends ControllerBase {
 
 	public void navigateTo(String page) {
 		if(page == "WelcomeScreenView") {
-			//Not implemented
+			WelcomeScreenView newPage = new WelcomeScreenView(this.view.MainFrame);
+			WelcomeScreenController newControl = new WelcomeScreenController(newPage);
+			newControl.display();
+		}
+
+		else {
+			System.out.println("Exception");
 		}
 	}
 }
