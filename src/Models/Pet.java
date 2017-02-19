@@ -61,8 +61,11 @@ public abstract class Pet {
 	return value;
     }
     public void updateHealth() {
-	if (checkHealthy())
+	if (checkHealthy()) {
 	    health++;
+	    if (health > 20)
+		health = 20;
+	}
 	else
 	    health = health - 0.5 * disease.size();
     }
