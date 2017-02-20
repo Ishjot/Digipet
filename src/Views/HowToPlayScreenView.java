@@ -32,11 +32,7 @@ public class HowToPlayScreenView extends ViewBase {
 			}
 		});
 
-		//MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MainFrame.add(scroll);
 		MainFrame.add(backToWelcomeScreenButton);
-		//MainFrame.setSize(600, 600);
-		//MainFrame.getContentPane().setLayout(new GridLayout(2,1));
-		MainFrame.pack();
 	}
 }

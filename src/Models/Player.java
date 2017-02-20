@@ -39,7 +39,7 @@ public class Player {
 
     public void feedPet(FoodItem food) {
         int foodPt = food.getFoodFillUpRate();
-        playerPet.setHunger(foodPt);
+        playerPet.updateHunger(foodPt);
         //decrease quantity of foodItem by 1
 
     }
