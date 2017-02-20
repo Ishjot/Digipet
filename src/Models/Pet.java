@@ -34,6 +34,9 @@ public abstract class Pet {
 	hunger += 10;
 	//cleanliness += 10;
     }
+    public String getName() {
+	return name;
+    }
     public int getMaxStat() {
 	return maxStat;
     }
