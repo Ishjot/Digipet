@@ -5,12 +5,12 @@ public class WelcomeScreenController extends ControllerBase {
 
 	public void display() {
 		System.out.println("We in this");
-		view.MainFrame.setVisible(true);
+		GUIFrame.getFrame().setVisible(true);
 	}
 
 	public void navigateTo(String page) {
 		if(page == "HowToPlayScreenView") {
-			HowToPlayScreenView newPage = new HowToPlayScreenView(this.view.MainFrame);
+			HowToPlayScreenView newPage = new HowToPlayScreenView();
 			HowToPlayScreenController newControl = new HowToPlayScreenController(newPage);
 			newControl.display();
 		}
