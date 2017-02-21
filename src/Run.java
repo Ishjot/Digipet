@@ -4,7 +4,7 @@ public class Run {
 	}
 
 	public Run() {
-		WelcomeScreenView welcome = new WelcomeScreenView(null);
+		WelcomeScreenView welcome = new WelcomeScreenView();
 		WelcomeScreenController welcomeController = new WelcomeScreenController(welcome);
 		welcomeController.display();
 	}

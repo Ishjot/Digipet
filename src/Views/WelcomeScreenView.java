@@ -6,16 +6,12 @@ import java.awt.event.*;
  * The main GUI for the application
  */
 public class WelcomeScreenView extends ViewBase {
-	public WelcomeScreenView(JFrame frame) {
-		if(frame == null)
-			MainFrame = new JFrame("Digipet");
-		else
-			MainFrame = frame;
-
-		MainFrame.getContentPane().removeAll();
+	public WelcomeScreenView() {
+		GUIFrame.getFrame().getContentPane().removeAll();
+		view = new JPanel();
 
 		JButton playButton = new JButton("Play");
-		initButton(playButton);
+		initViewButton(playButton);
 		playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Play was pressed!");
@@ -23,7 +19,7 @@ public class WelcomeScreenView extends ViewBase {
 		});
 
 		JButton howToPlayButton = new JButton("How to Play");
-		initButton(howToPlayButton);
+		initViewButton(howToPlayButton);
 		howToPlayButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("How to Play was pressed!");
@@ -31,11 +27,16 @@ public class WelcomeScreenView extends ViewBase {
 			}
 		});
 
-		MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		MainFrame.add(playButton);
-		MainFrame.add(howToPlayButton);
-		MainFrame.setSize(600, 600);
-		MainFrame.getContentPane().setLayout(new GridLayout(2,1));
-		MainFrame.pack();
+		view.add(playButton);
+		view.add(howToPlayButton);
+		GUIFrame.getFrame().add(view);
+		GUIFrame.getFrame().pack();
+	}
+
+	public void initViewButton(JButton button) {
+		Dimension dim = new Dimension(800,400);
+		button.setPreferredSize(dim);
+		button.setBackground(Color.BLACK);
+		button.setForeground(Color.WHITE);
 	}
 }
