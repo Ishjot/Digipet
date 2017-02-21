@@ -13,6 +13,7 @@ public abstract class Pet {
     //private int playBonus;
     //private int dirty;
     //private ArrayList<Disease> diseases;
+    //private String picture;
     public Pet(String value) {
 	name = value;
 	age = 0;
@@ -24,6 +25,9 @@ public abstract class Pet {
 	//playBonus = 0;
 	//dirty = 5;
     }
+    public String getName() {
+	return name;
+    }
     public int getAge() {
 	return age;
     }
@@ -33,9 +37,6 @@ public abstract class Pet {
 	//mood += 10;
 	hunger += 10;
 	//cleanliness += 10;
-    }
-    public String getName() {
-	return name;
     }
     public int getMaxStat() {
 	return maxStat;
@@ -124,12 +125,12 @@ public abstract class Pet {
 	}
 	*/
     }
-    /*public void eat(FoodItem value) {
+    /*
+    public void eat(Food value) {
 	hunger = hunger + value.base + value.percent * maxStat;
 	if (hunger > maxStat)
 	    hunger = maxStat; 
     }
-  
     public double getCleanliness() {
 	return cleanliness;
     }
@@ -152,6 +153,9 @@ public abstract class Pet {
     }
     public void useMedicine(Medicine value) {
 	diseases.remove(value.disease);
+    }
+    public String getPicture() {
+	return picture;
     }
     public abstract void play(); //animation
     public abstract void eat(Food object); //animation
