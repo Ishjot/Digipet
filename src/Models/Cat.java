@@ -1,7 +1,7 @@
 public class Cat extends Pet {
     //private int lives;
-    public Cat(String value) {
-	super(value);
+    public Cat(String value1, String value2) {
+	super(value1, value2);
 	//health = 10;
 	//lives = 9;
     }

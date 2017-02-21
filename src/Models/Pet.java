@@ -13,9 +13,9 @@ public abstract class Pet {
     //private int playBonus;
     //private int dirty;
     //private ArrayList<Disease> diseases;
-    //private String picture;
-    public Pet(String value) {
-	name = value;
+    private String picture;
+    public Pet(String value1, String value2) {
+	name = value1;
 	age = 0;
 	maxStat = 100;
 	//health = 20;
@@ -24,6 +24,7 @@ public abstract class Pet {
 	//cleanliness = maxStat;
 	//playBonus = 0;
 	//dirty = 5;
+	picture = value2;
     }
     public String getName() {
 	return name;
@@ -154,9 +155,11 @@ public abstract class Pet {
     public void useMedicine(Medicine value) {
 	diseases.remove(value.disease);
     }
+    */
     public String getPicture() {
 	return picture;
     }
+    /*
     public abstract void play(); //animation
     public abstract void eat(Food object); //animation
     */
