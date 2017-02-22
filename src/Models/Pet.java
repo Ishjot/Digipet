@@ -14,8 +14,8 @@ public abstract class Pet {
     //private int dirty;
     //private ArrayList<Disease> diseases;
     private String picture;
-    public Pet(String value1, String value2) {
-	name = value1;
+    public Pet(String name, String picture) {
+	this.name = name;
 	age = 0;
 	maxStat = 100;
 	//health = 20;
@@ -24,7 +24,7 @@ public abstract class Pet {
 	//cleanliness = maxStat;
 	//playBonus = 0;
 	//dirty = 5;
-	picture = value2;
+	this.picture = picture;
     }
     public String getName() {
 	return name;
@@ -77,7 +77,7 @@ public abstract class Pet {
     public double getMood() {
 	return mood;
     }
-    public void updateMood(double value) {
+    public void updateMood() {
 	mood = mood + 0.25 * playBonus - 0.02 * maxStat;
 	if (mood > maxStat)
 	    mood = maxStat;
@@ -87,14 +87,14 @@ public abstract class Pet {
 	if (mood > maxStat)
 	    mood = maxStat;
     }
-    public void equipToy(Toy value) {
+    public void equipToy(Toy toy) {
 	if (toy1 == null) {
-	    playBonus += value.base;
-	    toy1 = value;
+	    playBonus += toy.base;
+	    toy1 = toy;
 	}
 	else if (toy2 == null) {
-	    playBonus += value.base;
-	    toy2 = value;
+	    playBonus += toy.base;
+	    toy2 = toy;
 	}
 	else
 	    // error message;
@@ -117,7 +117,7 @@ public abstract class Pet {
     public double getHunger() {
 	return hunger;
     }
-    public void updateHunger(double value) {
+    public void updateHunger() {
 	hunger = hunger - 0.02 * maxStat;
 	/*
 	if (hunger <= 0) {
@@ -127,15 +127,15 @@ public abstract class Pet {
 	*/
     }
     /*
-    public void eat(Food value) {
-	hunger = hunger + value.base + value.percent * maxStat / 100.0;
+    public void eat(Food food) {
+	hunger = hunger + food.base + food.percent * maxStat / 100.0;
 	if (hunger > maxStat)
 	    hunger = maxStat; 
     }
     public double getCleanliness() {
 	return cleanliness;
     }
-    public void groom(Grooming value);
+    public void groom(Grooming grooming);
     public void updateCleanliness() {
 	cleanliness = cleanliness - 0.02 * maxStat;
 	if (cleanliness <= 0) {
@@ -148,12 +148,12 @@ public abstract class Pet {
 	    dirty = 5;
     }
     public void contractRandDisease();
-    public void contractDisease(Disease value) {
-	if (!diseases.contains(value))
-	    diseases.add(value);
+    public void contractDisease(Disease disease) {
+	if (!diseases.contains(disease))
+	    diseases.add(disease);
     }
-    public void useMedicine(Medicine value) {
-	diseases.remove(value.disease);
+    public void useMedicine(Medicine medicine) {
+	diseases.remove(medicine.disease);
     }
     */
     public String getPicture() {
