@@ -1,79 +1,47 @@
-public class Item {
-    //for hunger bar
-    private int storeFoodCount = 1000;
-    private int playerFoodCount = 0;
 
-    //For bathe/wash pet
-    private int storeShampooCount = 1000;
-    private int storeBrushCount = 1000;
-    private int playerShampooCount = 0;
-    private int playerBrushCount = 0;
+public abstract class Item {
 
-    //Toys
-    private int storeToyOne;
-    private int playerToyOne;
+    private String name;
+    private String type;
+    private String picture;
+    private int price;
 
+    public Item(String name, String type, String picture, int price) {
+        setName(name);
+        setType(type);
+        setPicture(picture);
+        this.price = price;
+        }
 
-    public int getStoreFood(){
-	return storeFoodCount;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setStoreFood( int count ){
-	storeFoodCount = count;
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public int getPlayerFood(){
-	return playerFoodCount;
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public int getPrice() {
+        return this.price;
     }
 
-    public void setPlayerFood( int count ){
-	playerFoodCount = count;
+    public String getPicture() {
+        return picture;
     }
 
-    public void buyFood(){
-	playerFoodCount++;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
-    public int getStoreShampoo(){
-	return storeShampooCount;
-    }
-
-    public void setStoreShampoo( int count){
-	storeShampooCount = count;
-    }
-
-    public int getStoreBrush(){
-	return storeBrushCount;
-    }
-
-    public void setStoreBrush( int count){
-	storeBrushCount = count;
-    }
-
-
-    public int getPlayerShampoo(){
-	return playerShampooCount;
-    }
-
-    public void setPlayerShampoo( int count){
-	playerShampooCount = count;
-    }
-
-    public void buyShampoo(){
-	playerShampooCount ++;
-    }
-
-    public int getPlayerBrush(){
-	return playerBrushCount;
-    }
-
-    public void setPlayerBrush( int count){
-	playerBrushCount = count;
-    }
-
-    public void buyBrush(){
-	playerBrushCount++;
-    }
 
 
 }

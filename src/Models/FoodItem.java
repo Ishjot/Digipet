@@ -1,11 +1,27 @@
-public abstract class FoodItem extends Item{
+public class FoodItem extends Item{
 
-    private int FoodFillUpRate = 0;
+    public FoodItem(String name, String type, String picture, int price, int foodFillUpBase, int foodFillUpPercent) {
+        super(name, type, picture, price);
+        setFoodFillUpBase(foodFillUpBase);
+        setFoodFillUpPercent(foodFillUpPercent);
+    }
 
-    void setFoodFillUpRate( int fillRate ){
-	this.FoodFillUpRate = fillRate;
+    void setFoodFillUpBase(int fillUpBase) {
+        this.foodFillUpBase = fillUpBase;
     }
-    int getFoodFillUpRate () {
-	return this.FoodFillUpRate;
+
+    int getFoodFillUpBase() {
+        return this.foodFillUpBase;
     }
-}    
+
+    void setFoodFillUpPercent( int fillUpPercent){
+        this.foodFillUpPercent = fillUpPercent;
+    }
+
+    int getFoodFillUpPercent(){
+        return this.foodFillUpPercent;
+    }
+
+    private int foodFillUpPercent;
+    private int foodFillUpBase;
+}
