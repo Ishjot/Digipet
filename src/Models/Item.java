@@ -10,7 +10,7 @@ public abstract class Item {
         setName(name);
         setType(type);
         setPicture(picture);
-        this.price = price;
+        setPrice(price);
         }
 
     public String getName() {
