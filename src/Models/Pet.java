@@ -128,7 +128,7 @@ public abstract class Pet {
     }
     /*
     public void eat(Food food) {
-	hunger = hunger + food.base + food.percent * maxStat / 100;
+	hunger = hunger + food.base + food.percent * maxStat / 100.0;
 	if (hunger > maxStat)
 	    hunger = maxStat; 
     }
