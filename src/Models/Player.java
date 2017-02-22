@@ -10,7 +10,8 @@ public class Player {
     Pet playerPet;
     int currency;
     HashMap<Item, Integer> inventory = new HashMap<Item, Integer>(); //integer is the quantity of the Item
-    //Item[] iventory = new Item[20]; //changeable size depending on balance
+    String name;
+	//Item[] iventory = new Item[20]; //changeable size depending on balance
     //replace with maps or some other data structure
 
     //*******************************constructor*******************************//
@@ -20,6 +21,10 @@ public class Player {
         //inventory.put(, 0);
         //inventory.put(, 5);
     }
+
+	public Player(String Name) {
+		name = Name;
+	}
 
     //****************************getter & setters**********************************//
 

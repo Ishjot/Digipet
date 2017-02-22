@@ -14,7 +14,8 @@ public class GUIFrame {
 		
 		SingletonGUIFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		SingletonGUIFrame.setSize(800, 800);
-		SingletonGUIFrame.getContentPane().setLayout(new BoxLayout(SingletonGUIFrame.getContentPane(), BoxLayout.Y_AXIS));
+		SingletonGUIFrame.setBackground(Color.BLACK);
+		//SingletonGUIFrame.getContentPane().setLayout(new BoxLayout(SingletonGUIFrame.getContentPane(), BoxLayout.Y_AXIS));
 		SingletonGUIFrame.getContentPane().setBackground(Color.BLACK);
 		return SingletonGUIFrame;
 	}	
