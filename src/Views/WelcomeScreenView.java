@@ -2,9 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/*
- * The main GUI for the application
- */
 public class WelcomeScreenView extends ViewBase {
 	public WelcomeScreenView() {
 		GUIFrame.getFrame().getContentPane().removeAll();
@@ -15,6 +12,7 @@ public class WelcomeScreenView extends ViewBase {
 		playButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Play was pressed!");
+				controller.navigateTo("CreatePlayerScreenView");
 			}
 		});
 
@@ -30,7 +28,6 @@ public class WelcomeScreenView extends ViewBase {
 		view.add(playButton);
 		view.add(howToPlayButton);
 		GUIFrame.getFrame().add(view);
-		GUIFrame.getFrame().pack();
 	}
 
 	public void initViewButton(JButton button) {

@@ -15,6 +15,12 @@ public class WelcomeScreenController extends ControllerBase {
 			newControl.display();
 		}
 
+		else if(page == "CreatePlayerScreenView") {
+			CreatePlayerScreenView newPage = new CreatePlayerScreenView();
+			CreatePlayerScreenController newControl = new CreatePlayerScreenController(newPage);
+			newControl.display();
+		}
+
 		else {
 			System.out.println("Exception");
 		}
