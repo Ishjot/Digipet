@@ -3,13 +3,13 @@ public class Dog extends Pet {
 	super(name, 2, "");
     }
     public void eat(Food food) {
-	super.eat(food, false);
+	eat(food, false);
 	/*
 	if (food instanceof DogFood) {
-	    super.eat(food, true);
+	    eat(food, true);
 	}
 	else
-	    super.eat(food, false);
+	    eat(food, false);
 	*/
     }
 }
