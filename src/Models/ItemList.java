@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class ItemsList {
+public class ItemList {
     private ArrayList<Item> items = new ArrayList<Item>();
-    public ItemsList() {
+    public ItemList() {
 	items.add(0, new Biscuit());
 	items.add(new Fish());
     }
