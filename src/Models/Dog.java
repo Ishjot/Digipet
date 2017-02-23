@@ -1,16 +1,12 @@
 public class Dog extends Pet {
-    public Dog(String name, String picture) {
-	super(name, picture);
+    public Dog(String name) {
+	super(name, 2, "");
     }
-    /*
     public void eat(Food food) {
 	if (food instanceof DogFood) {
-	    hunger = hunger + food.base * 1.5 + food.percent * maxStat / 100.0;
-	    if (hunger > maxStat)
-		hunger = maxStat;
+	    super.eat(food, true);
 	}
 	else
-	    super.eat(food);
+	    super.eat(food, false);
     }
-    */
 }
