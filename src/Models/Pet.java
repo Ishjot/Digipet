@@ -4,26 +4,31 @@ public abstract class Pet {
     private String name;
     private int age;
     private int maxStat;
+    private double percentDecrease;
     //private double health;
     //private double mood;
-    private double hunger;
-    //private double cleanliness;
     //Toy toy1;
     //Toy toy2;
-    //private int playBonus;
-    //private int dirty;
-    //private ArrayList<Disease> diseases;
+    //private int toyBase;
+    private double hunger;
+    //private double cleanliness;
+    //private int diseaseTimer;
+    //private int diseaseGap;
+    //private ArrayList<String> diseases;
     private String picture;
-    public Pet(String name, String picture) {
+    //public Pet(String name, double percentDecrease, double health, int diseaseGap, String picture) {
+    public Pet(String name, double percentDecrease, String picture) {
 	this.name = name;
 	age = 0;
 	maxStat = 100;
-	//health = 20;
+	this.percentDecrease = percentDecrease;
+	//this.health = health;
 	//mood = maxStat;
+	//toyBase = 1;
 	hunger = maxStat;
 	//cleanliness = maxStat;
-	//playBonus = 0;
-	//dirty = 5;
+	//diseaseTimer = 1;
+	//this.diseaseGap = diseaseGap;
 	this.picture = picture;
     }
     public String getName() {
@@ -52,6 +57,9 @@ public abstract class Pet {
     public double getHealth() {
 	return health;
     }
+    public void setHealth(int health) {
+	this.health = health;
+    }
     public boolean checkHealthy() {
 	boolean value = true;
 	double bar = 0.8 * maxStat;
@@ -72,39 +80,42 @@ public abstract class Pet {
 		health = 20;
 	}
 	else
-	    health = health - 0.5 * disease.size();
+	    health = health - 0.1 * diseases.size();
     }
     public double getMood() {
 	return mood;
     }
+    public void setMood(double mood) {
+	this.mood = mood;
+    }
     public void updateMood() {
-	mood = mood + 0.25 * playBonus - 0.02 * maxStat;
+	mood = mood - percentDecrease * maxStat / 100.0;
 	if (mood > maxStat)
 	    mood = maxStat;
     }
     public void play() {
-	mood = mood + 0.01 * maxStat + playBonus;
+	mood = mood + toyBase;
 	if (mood > maxStat)
 	    mood = maxStat;
     }
     public void equipToy(Toy toy) {
 	if (toy1 == null) {
-	    playBonus += toy.base;
+	    toyBase += toy.getBase();
 	    toy1 = toy;
 	}
 	else if (toy2 == null) {
-	    playBonus += toy.base;
+	    toyBase += toy.getBase();
 	    toy2 = toy;
 	}
 	else
 	    // error message;
     }
     public void unequipToy1() {
-	playBonus -= toy1.base;
+	toyBase -= toy1.getBase();
 	toy1 = null;
     }
     public void unequipToy2() {
-	playBonus -= toy2.base;
+	toyBase -= toy2.getBase();
 	toy2 = null;
     }
     public Toy getToy1() {
@@ -117,8 +128,11 @@ public abstract class Pet {
     public double getHunger() {
 	return hunger;
     }
+    public void setHunger(double hunger) {
+	this.hunger = hunger;
+    }
     public void updateHunger() {
-	hunger = hunger - 0.02 * maxStat;
+	hunger = hunger - percentDecrease * maxStat / 100.0;
 	/*
 	if (hunger <= 0) {
 	    health -= 0.5;
@@ -126,41 +140,56 @@ public abstract class Pet {
 	}
 	*/
     }
-    /*
-    public void eat(Food food) {
-	hunger = hunger + food.base + food.percent * maxStat / 100.0;
+    public void eat(Food food, boolean trigger) {
+	if (trigger)
+	    hunger = hunger + food.getBase() * 1.5 + food.getPercent() * maxStat / 100.0;
+	else
+	    hunger = hunger + food.getBase() + food.getPercent() * maxStat / 100.0;
 	if (hunger > maxStat)
 	    hunger = maxStat; 
     }
+    /*
     public double getCleanliness() {
 	return cleanliness;
     }
+    public void setCleanliness(double cleanliness) {
+	this.cleanliness = cleanliness;
+    }
     public void groom(Grooming grooming);
     public void updateCleanliness() {
-	cleanliness = cleanliness - 0.02 * maxStat;
+	cleanliness = cleanliness - percentDecrease * maxStat / 100.0;
 	if (cleanliness <= 0) {
-	    if (dirty % 10 == 0)
+	    if (dirtyTimer % 10 == 0)
 		contractRandDisease();
-	    dirty++;
+	    dirtyTimer++;
 	    cleanliness = 0;
 	}
 	else
-	    dirty = 5;
+	    dirtyTimer = 1;
     }
-    public void contractRandDisease();
-    public void contractDisease(Disease disease) {
-	if (!diseases.contains(disease))
+    public String contractRandDisease();
+    public boolean contractDisease(String disease) {
+	if (!diseases.contains(disease)) {
 	    diseases.add(disease);
+	    return true;
+	}
+	else
+	    return false;
     }
     public void useMedicine(Medicine medicine) {
-	diseases.remove(medicine.disease);
+	boolean t = diseases.remove(medicine.getCure());
+	medicine.special(this, t);
     }
     */
     public String getPicture() {
 	return picture;
     }
+    public void setPicture(String picture) {
+	this.picture = picture;
+    }
     /*
-    public abstract void play(); //animation
-    public abstract void eat(Food object); //animation
+    public abstract void dance(); // move up and down animation
+    public abstract void disappear(); // leave screen animation
+    public abstract void death(); // picture tip over animation
     */
 }
