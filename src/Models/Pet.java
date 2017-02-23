@@ -140,6 +140,7 @@ public abstract class Pet {
 	}
 	*/
     }
+    public abstract void eat(Food food);
     public void eat(Food food, boolean trigger) {
 	if (trigger)
 	    hunger = hunger + food.getBase() * 1.5 + food.getPercent() * maxStat / 100.0;
