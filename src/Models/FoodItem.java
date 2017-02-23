@@ -1,7 +1,8 @@
 public class FoodItem extends Item{
 
     public FoodItem(String name, String type, String picture, int price, int foodFillUpBase, int foodFillUpPercent) {
-        super(name, type, picture, price);
+        super(name, price, picture);
+	this.type = type;
         setFoodFillUpBase(foodFillUpBase);
         setFoodFillUpPercent(foodFillUpPercent);
     }
@@ -24,4 +25,5 @@ public class FoodItem extends Item{
 
     private int foodFillUpPercent;
     private int foodFillUpBase;
+    private String type;
 }
