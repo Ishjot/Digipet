@@ -9,4 +9,6 @@ public abstract class ViewBase {
 	public void setController(ControllerBase control) {
 		controller = control;
 	}
+
+
 }

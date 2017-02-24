@@ -9,8 +9,8 @@ public class SingletonPlayer {
 		return player;
 	}
 
-	public static Player getPlayer(String name) {
-		player = new Player(name);
-		return player;
+
+	public static void makePlayer(String name, Pet yourPet) {
+		player = new Player(name, yourPet);
 	}
 }
