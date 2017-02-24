@@ -42,7 +42,7 @@ public class Player {
 
     //*******************************main functions of player class*******************************//
 
-    public void feedPet(FoodItem food) {
+    public void feedPet(Food food) {
         //int foodPt = food.getFoodFillUpRate();
         //playerPet.updateHunger(foodPt);
         //decrease quantity of foodItem by 1
