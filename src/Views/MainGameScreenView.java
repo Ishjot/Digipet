@@ -72,6 +72,7 @@ public class MainGameScreenView extends ViewBase {
                 makeMoneyButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent event) {
                                 System.out.println("Make money was pressed!");
+				controller.makeMoney();
                         }
                 });
                 makeMoneyButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
