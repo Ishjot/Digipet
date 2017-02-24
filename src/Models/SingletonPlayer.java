@@ -11,7 +11,6 @@ public class SingletonPlayer {
 
 
 	public static void makePlayer(String name, Pet yourPet) {
-		SingletonClock.getClock();
 		player = new Player(name, yourPet);
 	}
 }
