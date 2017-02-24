@@ -7,6 +7,7 @@ public class MyRunnable implements Runnable {
 	while (SingletonPlayer.getPlayer().getPlayerPet().getHunger() > 0) {
 	    if (SingletonClock.getClock().getTotal() > 1000 * x) {
 		SingletonPlayer.getPlayer().getPlayerPet().updateHunger();
+		System.out.println(SingletonPlayer.getPlayer().getPlayerPet().getHunger());
 		x++;
 	    }
 	}
