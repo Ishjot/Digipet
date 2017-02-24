@@ -4,11 +4,12 @@ public class MyRunnable implements Runnable {
     }
     public void go() {
 	long x = 1;
-	while (true) {
+	while (SingletonPlayer.getPlayer().getPlayerPet().getHunger() > 0) {
 	    if (SingletonClock.getClock().getTotal() > 1000 * x) {
 		SingletonPlayer.getPlayer().getPlayerPet().updateHunger();
 		x++;
 	    }
 	}
+	System.out.println("ggwp");
     }
 }
