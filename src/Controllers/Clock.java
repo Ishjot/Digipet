@@ -1,22 +1,22 @@
 public class Clock {
-    private long tStart;
-    private long tTotal;
+    private long start;
+    private long total;
     public Clock() {
-	tStart = System.currentTimeMillis();
-	tTotal = 0; // read tTotal from file
+	start = System.currentTimeMillis();
+	total = 0; // read total from file
     }
-    public long getTStart() {
-	return tStart;
+    public long getStart() {
+	return start;
     }
-    public long getTTotal() {
-	return tTotal + getElapsed();
+    public long getTotal() {
+	return total + getElapsed();
     }
     /*                                                                                              
-    public void setTTotal() {                                                                       
-        tTotal += getElapsed(); // write to file                                                    
+    public void setTotal() {                                                                       
+        total += getElapsed(); // write to file                                                    
     }                                                                                               
     */
     public long getElapsed() {
-	return System.currentTimeMillis() - tStart;
+	return System.currentTimeMillis() - start;
     }
 }
