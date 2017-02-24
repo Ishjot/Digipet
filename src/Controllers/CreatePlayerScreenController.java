@@ -15,4 +15,5 @@ public class CreatePlayerScreenController extends ControllerBase {
 			newControl.display();
 		}
 	}
+
 }
