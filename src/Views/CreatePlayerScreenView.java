@@ -21,7 +21,7 @@ public class CreatePlayerScreenView extends ViewBase {
 				if(nameField.getText().equals(""))
 					return;
 				else {
-					controller.createPlayer(nameField.getText()); //we have player name, but dog name is constant atm
+					controller.createPlayer(nameField.getText());
 					controller.navigateTo("MainGameScreenView");
 				}
 

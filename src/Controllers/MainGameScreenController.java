@@ -4,7 +4,7 @@ public class MainGameScreenController extends ControllerBase {
 	}
 
 	public void display() {
-		System.out.println("Main game screen page");
+		System.out.println("Owner: " + SingletonPlayer.getPlayer().getName());
 		GUIFrame.getFrame().setVisible(true);
 	}
 

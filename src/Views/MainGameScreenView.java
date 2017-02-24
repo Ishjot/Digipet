@@ -14,7 +14,7 @@ public class MainGameScreenView extends ViewBase {
 		
 		view.setBackground(Color.BLACK);
 
-		String title = String.format("Main Game Screen!!");
+		String title = String.format("Owner: " + SingletonPlayer.getPlayer().getName()  + "  Pet: " + SingletonPlayer.getPlayer().getPlayerPet().getName());
 		Font titleFont = new Font("Arial", Font.BOLD, 40);
 		JTextArea titleText = new JTextArea(title, 1, 5);
 		titleText.setFont(titleFont);
