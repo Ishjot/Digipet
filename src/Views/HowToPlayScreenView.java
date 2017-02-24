@@ -31,6 +31,7 @@ public class HowToPlayScreenView extends ViewBase {
 
 		view.add(scroll);
 		view.add(backToWelcomeScreenButton);
+
 		GUIFrame.getFrame().add(view);
 	}
 	
