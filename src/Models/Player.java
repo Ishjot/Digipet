@@ -1,81 +1,49 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
-/**
- * Created by Calvin on 2/11/2017.
- */
-//focus on food items
 public class Player {
-
-    Pet playerPet;
-    int currency;
-    HashMap<Item, Integer> inventory = new HashMap<Item, Integer>(); //integer is the quantity of the Item
-    String name;
-	//Item[] iventory = new Item[20]; //changeable size depending on balance
-    //replace with maps or some other data structure
-
-    //*******************************constructor*******************************//
-
-    public Player(){
-        //put as many items into invetory as required and set them to some value at the beginning
-        //inventory.put(, 0);
-        //inventory.put(, 5);
+    private String name;
+    private Pet pet;
+    private int digiCoins;
+    private ArrayList<Item> inventory = new ArrayList<Item>();
+    public Player(String name, Pet pet) {
+	this.name = name;
+	this.pet = pet;
+	digiCoins = 0;
     }
-
-	public Player(String Name) {
-		name = Name;
+    public String getName() {
+	return name;
+    }
+    public Pet getPet() {
+	return pet;
+    }
+    public int getDigiCoins() {
+	return digiCoins;
+    }
+    public ArrayList<Item> getInventory() {
+	return inventory;
+    }
+    public int getSize() {
+	return inventory.size();
+    }
+    public boolean addItem(Item item) {
+	if (inventory.size() >= 20)
+	    return false;
+	else {
+	    inventory.add(item);
+	    return true;
 	}
-
-    //****************************getter & setters**********************************//
-
-    public int getCurrency(){
-        return currency;
     }
-
-    public void setCurrency(int val){
-        currency = val;
+    public void sellItem(int i) {
+	digiCoins = digiCoins + inventory.get(i).getPrice() / 2;
+	inventory.remove(i);
     }
-
-    //public void getInventoryQuantity(Item item){}
-
-    //public void setIventoryQuantity(Item item){}
-
-    //*******************************main functions of player class*******************************//
-
-    public void feedPet(FoodItem food) {
-        //int foodPt = food.getFoodFillUpRate();
-        //playerPet.updateHunger(foodPt);
-        //decrease quantity of foodItem by 1
-
+    public void useItem(int i) {
+	if (inventory.get(i) instanceof Food) {
+	    pet.eat((Food) inventory.get(i));
+	    inventory.remove(i);
+	}
     }
-
-    /*public void petPlay(){
-        playerPet.setSomething(some value);
+    public void work() {
+	digiCoins++;
     }
-
-    public void petPlay(Item toy);*/
-
-    public void sellItem(Item trash){
-        //go into the shop to sell item? else
-        //decrement inventory trash item by 1
-
-        //should be give players currency back for the item?
-        //should be update shop inventory by some amount?
-        return;
-    }
-
-    public void buyItem(Item resource){
-        //go into shop?
-        //increment inventory by resource + 1
-        //update shop quantity??
-        return;
-    }
-
-    //this is probably just the "work"
-    //can't implement just yet:
-    public void playGame(){
-        currency++;
-    }
-
-
 }
