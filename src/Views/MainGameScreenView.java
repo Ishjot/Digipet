@@ -26,7 +26,7 @@ public class MainGameScreenView extends ViewBase {
 		JPanel moneyAndHealthBarsPanel = new JPanel(new BorderLayout(300,0));
 		moneyAndHealthBarsPanel.setBackground(Color.BLACK);
 
-		String money = String.format("$$$");
+		String money = String.format(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
 		Font moneyFont = new Font("Arial", Font.PLAIN, 30);
 		JTextArea moneyText = new JTextArea(money, 1, 2);
 		moneyText.setFont(moneyFont);
