@@ -11,8 +11,4 @@ public class MainGameScreenController extends ControllerBase {
 	public void navigateTo(String page) {
 		//Empty
 	}
-    public void playGame() {
-	SingletonPlayer.getPlayer().playGame();
-    }
-	
 }

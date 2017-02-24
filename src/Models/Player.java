@@ -8,8 +8,9 @@ public class Player {
 
     Pet playerPet;
     int currency;
-    HashMap<Item, Integer> inventory = new HashMap<Item, Integer>(); //integer is the quantity of the Item
+    //HashMap<Item, Integer> inventory = new HashMap<Item, Integer>(); //integer is the quantity of the Item
     String name;
+    int numItems;
     //Item[] iventory = new Item[20]; //changeable size depending on balance
     //replace with maps or some other data structure
 
@@ -33,6 +34,7 @@ public class Player {
         name = Name;
         playerPet = petType;
         currency = 0;
+	numItems = 1;
     }
 
     //****************************getter & setters**********************************//
@@ -49,21 +51,21 @@ public class Player {
 
     public Pet getPlayerPet(){ return playerPet;}
 
-    public HashMap<Item, Integer> getInv() {return inventory;}
+    //public HashMap<Item, Integer> getInv() {return inventory;}
 
-    public Integer getInventoryQuantity(Item item){
-        return inventory.get(item);
+    public int getNumItems(){
+        return numItems;
     }
 
-    public void setIventoryQuantity(Item item, Integer val){
-        inventory.put(item, val);
+    public void setItemsNum(int val){
+        numItems += val;
     }
 
     //*******************************main functions of player class*******************************//
 
-    public void addItem(Item item){
+    /*public void addItem(Item item){
         inventory.put(item, 0);
-    }
+    }*/
 
     /*public void petPlay(){
         playerPet.setSomething(some value);
@@ -71,22 +73,17 @@ public class Player {
 
     public void petPlay(Item toy);*/
 
-    public void sellItem(Item trash){
+    /*public void sellItem(Item trash){
         if(inventory.containsKey(trash)) {
             currency = currency + trash.getPrice() / 2;
             inventory.put(trash, inventory.get(trash) - 1);
         }
         return;
-    }
+    }*/
 
-    public void useItem(Item item){
-        if(item instanceof Food){
-            playerPet.eat((Food) item);
-            inventory.put(item, inventory.get(item) - 1);
-        }
-        /*
-        if(item instanceof Toy) //WIP
-         */
+    public void feedPet(){
+      	playerPet.eat(new Biscuit());
+	setItemsNum(-1);
     }
 
     /*public void buyItem(Item resource){

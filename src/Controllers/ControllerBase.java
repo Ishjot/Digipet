@@ -19,8 +19,26 @@ public abstract class ControllerBase {
 
 	public abstract void navigateTo(String page);
 
-    public void createPlayer(String name){
-        String[] tmp = name.split("\\s+"); //does not matter how many spaces are in between yourname and petname
-        SingletonPlayer.makePlayer(tmp[0], new Dog(tmp[1]));
-    }
+	public void createPlayer(String name) {
+		String[] tmp = name.split("\\s+"); //does not matter how many spaces are in between yourname and petname
+        	SingletonPlayer.makePlayer(tmp[0], new Dog(tmp[1]));
+
+                SingletonClock.getClock();
+                Runnable threadJob = new MyRunnable();
+                Thread myThread = new Thread(threadJob);
+                myThread.start();		
+	}
+
+	public void playGame() {
+		SingletonPlayer.getPlayer().playGame();
+	}
+
+	public void buyFood() {
+		SingletonPlayer.getPlayer().setCurrency(-5);
+		SingletonPlayer.getPlayer().setItemsNum(1);
+	}
+
+	public void feedPet() {
+		SingletonPlayer.getPlayer().feedPet();
+	}
 }

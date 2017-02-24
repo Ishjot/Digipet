@@ -14,6 +14,8 @@ public class MainGameScreenView extends ViewBase {
 		
 		view.setBackground(Color.BLACK);
 
+		JLabel currentItems = new JLabel("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
+
 		String title = String.format("Owner: " + SingletonPlayer.getPlayer().getName()  + "  Pet: " + SingletonPlayer.getPlayer().getPlayerPet().getName());
 		Font titleFont = new Font("Arial", Font.BOLD, 40);
 		JTextArea titleText = new JTextArea(title, 1, 5);
@@ -62,6 +64,11 @@ public class MainGameScreenView extends ViewBase {
 		buyFoodButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Buy food was pressed!");
+				if(SingletonPlayer.getPlayer().getCurrency() >= 5) {
+					controller.buyFood();
+					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
+					moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
+				}
 			}
 		});
 		buyFoodButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
@@ -72,6 +79,8 @@ public class MainGameScreenView extends ViewBase {
                 makeMoneyButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent event) {
                                 System.out.println("Make money was pressed!");
+				controller.playGame();
+				moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
                         }
                 });
                 makeMoneyButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
@@ -82,6 +91,10 @@ public class MainGameScreenView extends ViewBase {
                 feedPetButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent event) {
                                 System.out.println("Feed pet was pressed!");
+				if(SingletonPlayer.getPlayer().getNumItems() >= 1) {
+					controller.feedPet();
+					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
+				}
                         }
                 });
                 feedPetButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
@@ -89,6 +102,7 @@ public class MainGameScreenView extends ViewBase {
 		bottomButtonsPanel.add(buyFoodButton);
 		bottomButtonsPanel.add(makeMoneyButton);
 		bottomButtonsPanel.add(feedPetButton);
+		bottomButtonsPanel.add(currentItems);
 
 		view.add(titleText);
 		view.add(moneyAndHealthBarsPanel);
@@ -97,14 +111,4 @@ public class MainGameScreenView extends ViewBase {
 
 		GUIFrame.getFrame().add(view);
 	}
-        public ImageIcon createImageIcon(String path, String description) {
-                java.net.URL imgURL = getClass().getResource(path);
-                if (imgURL != null) {
-                        return new ImageIcon(imgURL, description);
-                } else {
-                        System.err.println("Couldn't find file: " + path);
-                        return null;
-                }
-        }
-
 }
