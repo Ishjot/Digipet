@@ -4,20 +4,20 @@ public abstract class Pet {
     private String name;
     private int age;
     private int maxStat;
-    private double percentDecrease;
+    private int percentDecrease;
     //private double health;
     //private double mood;
     //Toy toy1;
     //Toy toy2;
     //private int toyBase;
-    private double hunger;
+    private int hunger;
     //private double cleanliness;
     //private int diseaseTimer;
     //private int diseaseGap;
     //private ArrayList<String> diseases;
     private String picture;
-    //public Pet(String name, double percentDecrease, double health, int diseaseGap, String picture) {
-    public Pet(String name, double percentDecrease, String picture) {
+    //public Pet(String name, int percentDecrease, double health, int diseaseGap, String picture) {
+    public Pet(String name, int percentDecrease, String picture) {
 	this.name = name;
 	age = 0;
 	maxStat = 100;
@@ -125,14 +125,14 @@ public abstract class Pet {
 	return toy2;
     }
     */
-    public double getHunger() {
+    public int getHunger() {
 	return hunger;
     }
-    public void setHunger(double hunger) {
+    public void setHunger(int hunger) {
 	this.hunger = hunger;
     }
     public void updateHunger() {
-	hunger = hunger - percentDecrease * maxStat / 100.0;
+	hunger = hunger - percentDecrease * maxStat / 100;
 	/*
 	if (hunger <= 0) {
 	    health -= 0.5;
@@ -143,9 +143,9 @@ public abstract class Pet {
     public abstract void eat(Food food);
     public void eat(Food food, boolean trigger) {
 	if (trigger)
-	    hunger = hunger + food.getBase() * 1.5 + food.getPercent() * maxStat / 100.0;
+	    hunger = hunger + food.getBase() * 2 + food.getPercent() * maxStat / 100;
 	else
-	    hunger = hunger + food.getBase() + food.getPercent() * maxStat / 100.0;
+	    hunger = hunger + food.getBase() + food.getPercent() * maxStat / 100;
 	if (hunger > maxStat)
 	    hunger = maxStat; 
     }

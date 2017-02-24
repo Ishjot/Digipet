@@ -1,7 +1,7 @@
 public abstract class Food extends Item {
     private int base;
-    private double percent;
-    public Food(String name, int price, int base, double percent, String picture) {
+    private int percent;
+    public Food(String name, int price, int base, int percent, String picture) {
 	super(name, price, picture);
 	this.base = base;
 	this.percent = percent;
@@ -12,7 +12,7 @@ public abstract class Food extends Item {
     public void setBase(int base) {
 	this.base = base;
     }
-    public double getPercent() {
+    public int getPercent() {
 	return percent;
     }
     public void setPercent(int percent) {

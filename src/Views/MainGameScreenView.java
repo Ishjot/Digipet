@@ -37,7 +37,7 @@ public class MainGameScreenView extends ViewBase {
 		moneyText.setEditable(false);
 		moneyText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 
-		String currentHealth = String.format("12/20");
+		String currentHealth = String.format(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
 		Font healthFont = new Font("Arial", Font.PLAIN, 30);
 		JTextArea healthText = new JTextArea(currentHealth, 1, 3);
 		healthText.setFont(healthFont);
@@ -94,6 +94,7 @@ public class MainGameScreenView extends ViewBase {
 				if(SingletonPlayer.getPlayer().getNumItems() >= 1) {
 					controller.feedPet();
 					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
+					healthText.setText(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
 				}
                         }
                 });
