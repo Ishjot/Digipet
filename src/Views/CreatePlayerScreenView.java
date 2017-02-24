@@ -18,11 +18,17 @@ public class CreatePlayerScreenView extends ViewBase {
 		nameField.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent event) {
 				System.out.println("Typed: " + nameField.getText());
-				controller.navigateTo("MainGameScreenView");
+				if(nameField.getText().equals(""))
+					return;
+				else {
+					controller.createPlayer(nameField.getText()); //we have player name, but dog name is constant atm
+					controller.navigateTo("MainGameScreenView");
+				}
+
 			}
 		});
 
-		JLabel nameLabel = new JLabel("Input name, then press enter");
+		JLabel nameLabel = new JLabel("Input name followed by space and pet name, then press enter");
 		nameLabel.setForeground(Color.WHITE);
 
 
