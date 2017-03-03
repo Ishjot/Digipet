@@ -54,12 +54,10 @@ public class MainGameScreenView extends ViewBase {
 		catch (IOException e) { System.out.println("Couldn't find file"); }
 		ImageIcon image = new ImageIcon(img);
 		JLabel dogLabel = new JLabel(); dogLabel.setIcon(image);
-		dogLabel.setBorder(BorderFactory.createEmptyBorder(50, 100, 25, 100));
+		dogLabel.setBorder(BorderFactory.createEmptyBorder(50, 200, 50, 200));
 
 		JPanel bottomButtonsPanel = new JPanel(new FlowLayout());
 
-
-		//changes
 		final JPopupMenu selectPopup = new JPopupMenu();
 		selectPopup.add(new JMenuItem(new AbstractAction("Option 1") {
 			public void actionPerformed(ActionEvent e) {
@@ -72,15 +70,8 @@ public class MainGameScreenView extends ViewBase {
 			}
 		}));
 
-
-
-
-
-
-		//select button
 		JButton selectItemButton = new JButton("SelectItem");
-		selectItemButton.setBackground(Color.BLACK);
-		selectItemButton.setForeground(Color.WHITE);
+		selectItemButton.setForeground(Color.BLACK);
 		selectItemButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event){
 				System.out.println("Selected Item was Pressed.");
@@ -88,8 +79,6 @@ public class MainGameScreenView extends ViewBase {
 			}
 		});
 		selectItemButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 50, 50)); //do not know how borders work lol
-
-		//
 
 		JButton buyFoodButton = new JButton("Buy food");
 		buyFoodButton.setForeground(Color.BLACK);
