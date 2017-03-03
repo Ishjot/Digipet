@@ -58,6 +58,39 @@ public class MainGameScreenView extends ViewBase {
 
 		JPanel bottomButtonsPanel = new JPanel(new FlowLayout());
 
+
+		//changes
+		final JPopupMenu selectPopup = new JPopupMenu();
+		selectPopup.add(new JMenuItem(new AbstractAction("Option 1") {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(view, "Option 1 selected");
+			}
+		}));
+		selectPopup.add(new JMenuItem(new AbstractAction("Option 2") {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(view, "Option 2 selected");
+			}
+		}));
+
+
+
+
+
+
+		//select button
+		JButton selectItemButton = new JButton("SelectItem");
+		selectItemButton.setBackground(Color.BLACK);
+		selectItemButton.setForeground(Color.WHITE);
+		selectItemButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event){
+				System.out.println("Selected Item was Pressed.");
+				selectPopup.show(selectItemButton, 50, -25);
+			}
+		});
+		selectItemButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 50, 50)); //do not know how borders work lol
+
+		//
+
 		JButton buyFoodButton = new JButton("Buy food");
 		buyFoodButton.setForeground(Color.BLACK);
 		buyFoodButton.addActionListener(new ActionListener() {
@@ -101,11 +134,13 @@ public class MainGameScreenView extends ViewBase {
 		bottomButtonsPanel.add(makeMoneyButton);
 		bottomButtonsPanel.add(feedPetButton);
 		bottomButtonsPanel.add(currentItems);
+		bottomButtonsPanel.add(selectItemButton);
 
 		view.add(titleText);
 		view.add(moneyAndHealthBarsPanel);
 		view.add(dogLabel);
 		view.add(bottomButtonsPanel);
+		view.add(selectItemButton);
 
 		GUIFrame.getFrame().add(view);
 	}
