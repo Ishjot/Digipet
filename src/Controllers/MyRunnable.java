@@ -20,7 +20,7 @@ public class MyRunnable implements Runnable {
 		updateView();
 	    }
 	}
-	System.out.println("ggwp");
+	System.out.println("Game Over!");
 	openGameOverScreenView();
     }
 

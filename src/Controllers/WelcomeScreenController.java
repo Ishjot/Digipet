@@ -4,7 +4,7 @@ public class WelcomeScreenController extends ControllerBase {
 	}
 
 	public void display() {
-		System.out.println("We in this");
+		System.out.println("Welcome Screen Loaded");
 		GUIFrame.getFrame().setVisible(true);
 	}
 

@@ -12,8 +12,8 @@ public class HowToPlayScreenView extends ViewBase {
 		Font font = new Font("Arial", Font.PLAIN, 14);
 		JTextArea text = new JTextArea(message, 20, 60);
 		text.setFont(font);
-		text.setForeground(Color.WHITE);
-		text.setBackground(Color.BLACK);
+		text.setForeground(Color.BLACK);
+		//text.setBackground(Color.BLACK);
 		text.setEditable(false);
 		text.setLineWrap(true);
 		text.setWrapStyleWord(true);
@@ -38,7 +38,6 @@ public class HowToPlayScreenView extends ViewBase {
 	public void initViewButton(JButton button) {
 		Dimension dim = new Dimension(800, 400);
 		button.setPreferredSize(dim);
-		button.setBackground(Color.BLACK);
-		button.setForeground(Color.WHITE);
+		button.setForeground(Color.BLACK);
 	}
 }

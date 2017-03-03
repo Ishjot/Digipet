@@ -50,7 +50,7 @@ public class MainGameScreenView extends ViewBase {
 		moneyAndHealthBarsPanel.add(BorderLayout.EAST, healthText);
 
 		BufferedImage img = null;
-		try { img = ImageIO.read(new File("dog.png")); }
+		try { img = ImageIO.read(new File("dogtransparent.png")); }
 		catch (IOException e) { System.out.println("Couldn't find file"); }
 		ImageIcon image = new ImageIcon(img);
 		JLabel dogLabel = new JLabel(); dogLabel.setIcon(image);
@@ -59,8 +59,7 @@ public class MainGameScreenView extends ViewBase {
 		JPanel bottomButtonsPanel = new JPanel(new FlowLayout());
 
 		JButton buyFoodButton = new JButton("Buy food");
-		buyFoodButton.setBackground(Color.BLACK);
-		buyFoodButton.setForeground(Color.WHITE);
+		buyFoodButton.setForeground(Color.BLACK);
 		buyFoodButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.out.println("Buy food was pressed!");
@@ -74,8 +73,7 @@ public class MainGameScreenView extends ViewBase {
 		buyFoodButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
 
                 JButton makeMoneyButton = new JButton("Make money");
-                makeMoneyButton.setBackground(Color.BLACK);
-                makeMoneyButton.setForeground(Color.WHITE);
+                makeMoneyButton.setForeground(Color.BLACK);
                 makeMoneyButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent event) {
                                 System.out.println("Make money was pressed!");
@@ -86,8 +84,7 @@ public class MainGameScreenView extends ViewBase {
                 makeMoneyButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
 
                 JButton feedPetButton = new JButton("Feed Pet");
-                feedPetButton.setBackground(Color.BLACK);
-                feedPetButton.setForeground(Color.WHITE);
+                feedPetButton.setForeground(Color.BLACK);
                 feedPetButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent event) {
                                 System.out.println("Feed pet was pressed!");
