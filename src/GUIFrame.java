@@ -10,13 +10,10 @@ public class GUIFrame {
 	public static JFrame getFrame() {
 		if(SingletonGUIFrame == null) {
 			SingletonGUIFrame = new JFrame("Digipet");
+			SingletonGUIFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			SingletonGUIFrame.setSize(500, 500);
 		}
 		
-		SingletonGUIFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		SingletonGUIFrame.setSize(800, 800);
-		//SingletonGUIFrame.setBackground(Color.BLACK);
-		//SingletonGUIFrame.getContentPane().setLayout(new BoxLayout(SingletonGUIFrame.getContentPane(), BoxLayout.Y_AXIS));
-		SingletonGUIFrame.getContentPane().setBackground(Color.BLACK);
 		return SingletonGUIFrame;
 	}	
 }
