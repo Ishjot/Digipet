@@ -23,9 +23,9 @@ public class MainGameScreenView extends ViewBase {
 		titleText.setForeground(Color.WHITE);
 		titleText.setBackground(Color.BLACK);
 		titleText.setEditable(false);
-		titleText.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+		titleText.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
-		JPanel moneyAndHealthBarsPanel = new JPanel(new BorderLayout(300,0));
+		JPanel moneyAndHealthBarsPanel = new JPanel(new BorderLayout(150,0));
 		moneyAndHealthBarsPanel.setBackground(Color.BLACK);
 
 		String money = String.format(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
@@ -54,7 +54,7 @@ public class MainGameScreenView extends ViewBase {
 		catch (IOException e) { System.out.println("Couldn't find file"); }
 		ImageIcon image = new ImageIcon(img);
 		JLabel dogLabel = new JLabel(); dogLabel.setIcon(image);
-		dogLabel.setBorder(BorderFactory.createEmptyBorder(50, 200, 50, 200));
+		dogLabel.setBorder(BorderFactory.createEmptyBorder(20, 200, 20, 200));
 
 		JPanel bottomButtonsPanel = new JPanel(new FlowLayout());
 
@@ -92,7 +92,7 @@ public class MainGameScreenView extends ViewBase {
 				}
 			}
 		});
-		buyFoodButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
+		buyFoodButton.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
 
                 JButton makeMoneyButton = new JButton("Make money");
                 makeMoneyButton.setForeground(Color.BLACK);
@@ -103,7 +103,7 @@ public class MainGameScreenView extends ViewBase {
 				moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
                         }
                 });
-                makeMoneyButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
+                makeMoneyButton.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
 
                 JButton feedPetButton = new JButton("Feed Pet");
                 feedPetButton.setForeground(Color.BLACK);
@@ -117,7 +117,7 @@ public class MainGameScreenView extends ViewBase {
 				}
                         }
                 });
-                feedPetButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50));
+                feedPetButton.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
 
 		bottomButtonsPanel.add(buyFoodButton);
 		bottomButtonsPanel.add(makeMoneyButton);

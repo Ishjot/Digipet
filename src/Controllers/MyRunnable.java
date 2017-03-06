@@ -39,12 +39,12 @@ public class MyRunnable implements Runnable {
 
 		String gameOver = String.format("Game over! :(");
 		JTextArea gameOverText = new JTextArea(gameOver, 1, 5);
-		Font bigFont = new Font("Arial", Font.BOLD, 100);
+		Font bigFont = new Font("Arial", Font.BOLD, 40);
 		gameOverText.setFont(bigFont);
 		gameOverText.setForeground(Color.WHITE);
 		gameOverText.setBackground(Color.BLACK);
 		gameOverText.setEditable(false);
-		gameOverText.setBorder(BorderFactory.createEmptyBorder(300, 10, 0, 0));
+		gameOverText.setBorder(BorderFactory.createEmptyBorder(225, 65, 0, 0));
 
 		view.add(gameOverText);
 

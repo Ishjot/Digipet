@@ -10,7 +10,7 @@ public class HowToPlayScreenView extends ViewBase {
 
 		String message = String.format("The aim of this game is to make money, buy food, and try your best to keep your pet alive! The user interface is fairly simple, with only three clickable buttons. Click the \"Make money\" button to earn currency, spend this currency with the \"Buy food\" button, and finally, feed your pet with the \"Feed pet\" button! Repeat these steps until you are tired of the game, or, your lose.");
 		Font font = new Font("Arial", Font.PLAIN, 14);
-		JTextArea text = new JTextArea(message, 20, 60);
+		JTextArea text = new JTextArea(message, 8, 37);
 		text.setFont(font);
 		text.setForeground(Color.BLACK);
 		//text.setBackground(Color.BLACK);
