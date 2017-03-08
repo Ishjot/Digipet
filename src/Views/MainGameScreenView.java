@@ -49,6 +49,7 @@ public class MainGameScreenView extends ViewBase {
 		moneyAndHealthBarsPanel.add(BorderLayout.WEST, moneyText);
 		moneyAndHealthBarsPanel.add(BorderLayout.EAST, healthText);
 
+		//Creates the "dog" image
 		BufferedImage img = null;
 		try { img = ImageIO.read(new File("dogtransparent.png")); }
 		catch (IOException e) { System.out.println("Couldn't find file"); }
