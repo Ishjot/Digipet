@@ -13,7 +13,7 @@ public class MyRunnable implements Runnable {
     public void go() {
 	long x = 1;
 	while (SingletonPlayer.getPlayer().getPlayerPet().getHunger() > 0) {
-	    if (SingletonClock.getClock().getTotal() > 500 * x) {
+	    if (SingletonClock.getClock().getTotal() > 750 * x) {
 		SingletonPlayer.getPlayer().getPlayerPet().updateHunger();
 		System.out.println(SingletonPlayer.getPlayer().getPlayerPet().getHunger());
 		x++;
@@ -28,8 +28,8 @@ public class MyRunnable implements Runnable {
 		Component[] components = GUIFrame.getFrame().getContentPane().getComponents();
 		JPanel mainPanel = (JPanel) components[0];
 		JPanel moneyAndHealthPanel = (JPanel) mainPanel.getComponents()[1];
-		JTextArea moneyText = (JTextArea) moneyAndHealthPanel.getComponents()[1];
-		moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
+		JTextArea healthText = (JTextArea) moneyAndHealthPanel.getComponents()[1];
+		healthText.setText(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
 	}
 
 	public void openGameOverScreenView() {
