@@ -24,7 +24,7 @@ public abstract class ControllerBase {
         	SingletonPlayer.makePlayer(tmp[0], new Dog(tmp[1]));
 
                 SingletonClock.getClock();
-                Runnable threadJob = new MyRunnable();
+                Runnable threadJob = new SecondRunnable();
                 Thread myThread = new Thread(threadJob);
                 myThread.start();		
 	}
