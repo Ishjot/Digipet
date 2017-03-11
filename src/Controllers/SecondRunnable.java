@@ -6,7 +6,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 
-public class MyRunnable implements Runnable {
+public class SecondRunnable implements Runnable {
     public void run() {
 	go();
     }
