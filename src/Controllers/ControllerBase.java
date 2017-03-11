@@ -26,7 +26,10 @@ public abstract class ControllerBase {
                 SingletonClock.getClock();
                 Runnable threadJob = new SecondRunnable();
                 Thread myThread = new Thread(threadJob);
-                myThread.start();		
+                myThread.start();
+		Runnable minuteThreadJob = new MinuteRunnable();
+		Thread myMinuteThread = new Thread(minuteThreadJob);
+		myMinuteThread.start();
 	}
 
 	public void playGame() {

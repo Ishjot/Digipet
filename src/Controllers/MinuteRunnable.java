@@ -3,13 +3,14 @@ public class MinuteRunnable implements Runnable {
 	go();
     }
     public void go() {
-	long x = 0;
+	long x = 1;
+	//SingletonShop.getShop().refreshShop();
 	while (true) {
-	    if (SingletonClock.getClock().getTotal() > 60000 * x) {
+	    if (SingletonClock.getClock().getTotal() > 45000 * x) {
 		SingletonPlayer.getPlayer().getPlayerPet().updateAge();
-		SingletonShop.getShop().refreshShop();
+		//SingletonShop.getShop().refreshShop();
 		x++;
-		//updateView(); or updateShop();
+		//updateView()
 	    }
 	}
     }
