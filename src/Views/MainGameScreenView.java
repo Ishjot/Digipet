@@ -37,6 +37,15 @@ public class MainGameScreenView extends ViewBase {
 		moneyText.setEditable(false);
 		moneyText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 
+                String currentAge = String.format(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()));
+		Font ageFont = new Font("Arial", Font.PLAIN, 30);
+		JTextArea ageText = new JTextArea(currentAge, 1, 2);
+		ageText.setFont(ageFont);
+		ageText.setForeground(Color.WHITE);
+		ageText.setBackground(Color.BLACK);
+		ageText.setEditable(false);
+		ageText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+		
 		String currentHealth = String.format(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
 		Font healthFont = new Font("Arial", Font.PLAIN, 30);
 		JTextArea healthText = new JTextArea(currentHealth, 1, 3);
@@ -45,8 +54,9 @@ public class MainGameScreenView extends ViewBase {
 		healthText.setBackground(Color.BLACK);
 		healthText.setEditable(false);
 		healthText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-
+		
 		moneyAndHealthBarsPanel.add(BorderLayout.WEST, moneyText);
+		moneyAndHealthBarsPanel.add(BorderLayout.CENTER, ageText);
 		moneyAndHealthBarsPanel.add(BorderLayout.EAST, healthText);
 
 		//Creates the "dog" image
