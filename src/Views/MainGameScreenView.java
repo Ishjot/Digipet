@@ -71,6 +71,41 @@ public class MainGameScreenView extends ViewBase {
 			}
 		}));
 
+		//redundant
+		final JPopupMenu sellPopup = new JPopupMenu();
+		sellPopup.add(new JMenuItem(new AbstractAction("biscuit") {
+			public void actionPerformed(ActionEvent e) {
+				//JOptionPane.showMessageDialog(view, "biscuit selected"); //
+				if(SingletonPlayer.getPlayer().getNumItems() > 0){
+					SingletonPlayer.getPlayer().setItemsNum(-1);
+					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
+					SingletonPlayer.getPlayer().setCurrency(2);
+					moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
+					System.out.println("sold biscuit for 2 points");
+				}
+				else{
+					JOptionPane.showMessageDialog(view, "Not enough biscuits");
+				}
+			}
+		}));
+		sellPopup.add(new JMenuItem(new AbstractAction("Option 2") {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(view, "Option 2 selected");
+			}
+		}));
+
+		//sellItems
+		JButton sellItemButton = new JButton("Sell Items");
+		sellItemButton.setForeground(Color.BLACK);
+		sellItemButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event){
+				System.out.println("Selected Item was Pressed.");
+				sellPopup.show(sellItemButton, 50, -25);
+			}
+		});
+		sellItemButton.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 50));
+
+		//selectItem
 		JButton selectItemButton = new JButton("SelectItem");
 		selectItemButton.setForeground(Color.BLACK);
 		selectItemButton.addActionListener(new ActionListener() {
@@ -124,13 +159,17 @@ public class MainGameScreenView extends ViewBase {
 		bottomButtonsPanel.add(makeMoneyButton);
 		bottomButtonsPanel.add(feedPetButton);
 		bottomButtonsPanel.add(currentItems);
+		bottomButtonsPanel.add(sellItemButton);
 		bottomButtonsPanel.add(selectItemButton);
+
 
 		view.add(titleText);
 		view.add(moneyAndHealthBarsPanel);
 		view.add(dogLabel);
 		view.add(bottomButtonsPanel);
+		view.add(sellItemButton);
 		view.add(selectItemButton);
+
 
 		GUIFrame.getFrame().add(view);
 	}
