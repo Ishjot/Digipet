@@ -1,5 +1,9 @@
 public class Salmon extends Food {
-    public Salmon() {
-	super("Salmon", 15, 10, 1, "");
-    }
+	
+	/**
+	 * Default Constructor. Creates a Salmon item.
+	 */
+	public Salmon() {
+		super("Salmon", 15, 10, 1, "");
+	}
 }
