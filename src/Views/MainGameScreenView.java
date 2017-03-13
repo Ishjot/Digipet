@@ -25,11 +25,11 @@ public class MainGameScreenView extends ViewBase {
 		titleText.setEditable(false);
 		titleText.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
 
-		JPanel moneyAndHealthBarsPanel = new JPanel(new BorderLayout(150,0));
+		JPanel moneyAndHealthBarsPanel = new JPanel(new BorderLayout(50,0));
 		moneyAndHealthBarsPanel.setBackground(Color.BLACK);
 
-		String money = String.format(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
-		Font moneyFont = new Font("Arial", Font.PLAIN, 30);
+		String money = String.format("$"+Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
+		Font moneyFont = new Font("Arial", Font.PLAIN, 20);
 		JTextArea moneyText = new JTextArea(money, 1, 2);
 		moneyText.setFont(moneyFont);
 		moneyText.setForeground(Color.GREEN);
@@ -37,8 +37,8 @@ public class MainGameScreenView extends ViewBase {
 		moneyText.setEditable(false);
 		moneyText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 
-                String currentAge = String.format(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()));
-		Font ageFont = new Font("Arial", Font.PLAIN, 30);
+                String currentAge = String.format("Level:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()));
+		Font ageFont = new Font("Arial", Font.PLAIN, 20);
 		JTextArea ageText = new JTextArea(currentAge, 1, 2);
 		ageText.setFont(ageFont);
 		ageText.setForeground(Color.WHITE);
@@ -46,8 +46,8 @@ public class MainGameScreenView extends ViewBase {
 		ageText.setEditable(false);
 		ageText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 		
-		String currentHealth = String.format(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
-		Font healthFont = new Font("Arial", Font.PLAIN, 30);
+		String currentHealth = String.format("Health:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
+		Font healthFont = new Font("Arial", Font.PLAIN, 20);
 		JTextArea healthText = new JTextArea(currentHealth, 1, 3);
 		healthText.setFont(healthFont);
 		healthText.setForeground(Color.WHITE);
@@ -113,7 +113,7 @@ public class MainGameScreenView extends ViewBase {
 				sellPopup.show(sellItemButton, 50, -25);
 			}
 		});
-		sellItemButton.setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 50));
+		sellItemButton.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
 
 		//selectItem
 		JButton selectItemButton = new JButton("SelectItem");
@@ -124,7 +124,7 @@ public class MainGameScreenView extends ViewBase {
 				selectPopup.show(selectItemButton, 50, -25);
 			}
 		});
-		selectItemButton.setBorder(BorderFactory.createEmptyBorder(0, 50, 50, 50)); //do not know how borders work lol
+		selectItemButton.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //do not know how borders work lol
 
 		JButton buyFoodButton = new JButton("Buy food");
 		buyFoodButton.setForeground(Color.BLACK);
@@ -134,7 +134,7 @@ public class MainGameScreenView extends ViewBase {
 				if(SingletonPlayer.getPlayer().getCurrency() >= 5) {
 					controller.buyFood();
 					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
-					moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
+					moneyText.setText("$"+Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
 				}
 			}
 		});
@@ -146,7 +146,7 @@ public class MainGameScreenView extends ViewBase {
                         public void actionPerformed(ActionEvent event) {
                                 System.out.println("Make money was pressed!");
 				controller.playGame();
-				moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
+				moneyText.setText("$"+Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
                         }
                 });
                 makeMoneyButton.setBorder(BorderFactory.createEmptyBorder(0, 15, 0, 15));
@@ -159,7 +159,7 @@ public class MainGameScreenView extends ViewBase {
 				if(SingletonPlayer.getPlayer().getNumItems() >= 1) {
 					controller.feedPet();
 					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
-					healthText.setText(Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
+					healthText.setText("Healh:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
 				}
                         }
                 });
