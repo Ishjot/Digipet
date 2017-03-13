@@ -113,7 +113,7 @@ public class MainGameScreenView extends ViewBase {
 				sellPopup.show(sellItemButton, 50, -25);
 			}
 		});
-		sellItemButton.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+		sellItemButton.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
 		//selectItem
 		JButton selectItemButton = new JButton("SelectItem");
@@ -124,7 +124,7 @@ public class MainGameScreenView extends ViewBase {
 				selectPopup.show(selectItemButton, 50, -25);
 			}
 		});
-		selectItemButton.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); //do not know how borders work lol
+		selectItemButton.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); //do not know how borders work lol
 
 		JButton buyFoodButton = new JButton("Buy food");
 		buyFoodButton.setForeground(Color.BLACK);
