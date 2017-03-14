@@ -17,11 +17,11 @@ public abstract class Pet {
     //private ArrayList<String> diseases;
     private String picture;
     //public Pet(String name, int percentDecrease, double health, int diseaseGap, String picture) {
-    public Pet(String name, int percentDecrease, String picture) {
+    public Pet(String name, String picture) {
 	this.name = name;
 	age = 0;
 	maxStat = 100;
-	this.percentDecrease = percentDecrease;
+	this.percentDecrease = 1;
 	//this.health = health;
 	//mood = maxStat;
 	//toyBase = 1;
@@ -41,7 +41,8 @@ public abstract class Pet {
 	age++;
 	maxStat += 10;
 	//mood += 10;
-	hunger += 10;
+	hunger = (int)((hunger + 0.5*maxStat)%100);
+	percentDecrease += 2;
 	//cleanliness += 10;
     }
     public int getMaxStat() {

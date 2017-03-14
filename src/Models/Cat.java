@@ -1,6 +1,6 @@
 public class Cat extends Pet {
     public Cat(String name) {
-	super(name, 2, "");
+	super(name, "");
     }
     public void eat(Food food) {
 	eat(food, false);
