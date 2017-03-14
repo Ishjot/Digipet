@@ -1,30 +1,97 @@
 public abstract class Pet {
-
+    private String name;
+    private int age;
+    private int maxStat;
+    private int percentDecrease;
+    //private double health;
+    //private double mood;
+    //Toy toy1;
+    //Toy toy2;
+    //private int toyBase;
+    private int hunger;
+    //private double cleanliness;
+    //private int diseaseTimer;
+    //private int diseaseGap;
+    //private ArrayList<String> diseases;
+    private String picture;
+    //public Pet(String name, int percentDecrease, double health, int diseaseGap, String picture) {
 	/**
 	 * Default Constructor for creating a new pet.
 	 * 
 	 * 
 	 * @param name
 	 *            pet's name
-	 * @param percentDecrease
-	 *            controls pace at which pet's attributes decrease
 	 * @param picture
 	 *            file location for pet's picture
 	 */
-	public Pet(String name, int percentDecrease, String picture) {
-		age = 0;
-		maxStat = 100;
-		hunger = maxStat;
-		this.name = name;
-		this.percentDecrease = percentDecrease;
-		this.picture = picture;
-	}
-
+    public Pet(String name, String picture) {
+	this.name = name;
+	age = 0;
+	maxStat = 100;
+	this.percentDecrease = 1;
+	//this.health = health;
+	//mood = maxStat;
+	//toyBase = 1;
+	hunger = maxStat;
+	//cleanliness = maxStat;
+	//diseaseTimer = 1;
+	//this.diseaseGap = diseaseGap;
+	this.picture = picture;
+    }
 	/**
 	 * @return name of pet
 	 */
 	public String getName() {
 		return name;
+  }
+    public String getName() {
+	return name;
+    }
+    public int getAge() {
+	return age;
+    }
+    public void updateAge() {
+	age++;
+	maxStat += 10;
+	//mood += 10;
+	hunger = (int)((hunger + 0.5*maxStat)%100);
+	percentDecrease += 2;
+	//cleanliness += 10;
+    }
+    public int getMaxStat() {
+	return maxStat;
+    }
+    /*
+    public void updateStats() {
+	updateHealth();
+	updateMood();
+	updateHunger();
+	updateCleanliness();
+    }
+    public double getHealth() {
+	return health;
+    }
+    public void setHealth(int health) {
+	this.health = health;
+    }
+    public boolean checkHealthy() {
+	boolean value = true;
+	double bar = 0.8 * maxStat;
+	if (mood < bar)
+	    value = false;
+	if (hunger < bar)
+	    value = false;
+	if (cleanliness < bar)
+	    value = false;
+	if (!diseases.isEmpty())
+	    value = false;
+	return value;
+    }
+    public void updateHealth() {
+	if (checkHealthy()) {
+	    health++;
+	    if (health > 20)
+		health = 20;
 	}
 
 	/**

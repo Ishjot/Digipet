@@ -1,10 +1,9 @@
 public class Dog extends Pet {
-
 	/**
 	 * Default Constructor. Create a new Dog (subclase of Pet)
 	 */
 	public Dog(String name) {
-		super(name, 2, "");
+		super(name, "");
 	}
 
 	

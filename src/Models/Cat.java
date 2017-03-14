@@ -1,10 +1,9 @@
-public class Cat extends Pet {
-	
+public class Cat extends Pet {	
 	/**
 	 * Default Constructor. Create a new Cat (subclase of Pet)
 	 */
 	public Cat(String name) {
-		super(name, 2, "");
+		super(name, "");
 	}
 	
 	/**

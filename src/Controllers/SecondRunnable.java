@@ -29,7 +29,7 @@ public class SecondRunnable implements Runnable {
 		JPanel mainPanel = (JPanel) components[0];
 		JPanel moneyAndHealthPanel = (JPanel) mainPanel.getComponents()[1];
 		JTextArea ageText = (JTextArea) moneyAndHealthPanel.getComponents()[1];
-		ageText.setText("Level:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()));
+		ageText.setText("Level:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()+1));
 		JTextArea healthText = (JTextArea) moneyAndHealthPanel.getComponents()[2];
 		healthText.setText("Health:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
 	}

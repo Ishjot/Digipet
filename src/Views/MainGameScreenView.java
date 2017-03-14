@@ -17,7 +17,7 @@ public class MainGameScreenView extends ViewBase {
 		JLabel currentItems = new JLabel("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
 
 		String title = String.format("Owner: " + SingletonPlayer.getPlayer().getName()  + "  Pet: " + SingletonPlayer.getPlayer().getPlayerPet().getName());
-		Font titleFont = new Font("Arial", Font.BOLD, 40);
+		Font titleFont = new Font("Arial", Font.BOLD, 30);
 		JTextArea titleText = new JTextArea(title, 1, 5);
 		titleText.setFont(titleFont);
 		titleText.setForeground(Color.WHITE);
@@ -37,7 +37,7 @@ public class MainGameScreenView extends ViewBase {
 		moneyText.setEditable(false);
 		moneyText.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 
-                String currentAge = String.format("Level:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()));
+                String currentAge = String.format("Level:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()+1));
 		Font ageFont = new Font("Arial", Font.PLAIN, 20);
 		JTextArea ageText = new JTextArea(currentAge, 1, 2);
 		ageText.setFont(ageFont);
@@ -90,7 +90,7 @@ public class MainGameScreenView extends ViewBase {
 					SingletonPlayer.getPlayer().setItemsNum(-1);
 					currentItems.setText("You currently have " + Integer.toString(SingletonPlayer.getPlayer().getNumItems()) + " biscuits. ");
 					SingletonPlayer.getPlayer().setCurrency(2);
-					moneyText.setText(Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
+					moneyText.setText("$"+Integer.toString(SingletonPlayer.getPlayer().getCurrency()));
 					System.out.println("sold biscuit for 2 points");
 				}
 				else{
@@ -125,6 +125,13 @@ public class MainGameScreenView extends ViewBase {
 			}
 		});
 		selectItemButton.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); //do not know how borders work lol
+
+		JButton inventoryButton = new JButton("Inventory");
+		inventoryButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				selectPopup.show(inventoryButton, 50, -25);
+			}
+		});
 
 		JButton buyFoodButton = new JButton("Buy food");
 		buyFoodButton.setForeground(Color.BLACK);
@@ -169,9 +176,6 @@ public class MainGameScreenView extends ViewBase {
 		bottomButtonsPanel.add(makeMoneyButton);
 		bottomButtonsPanel.add(feedPetButton);
 		bottomButtonsPanel.add(currentItems);
-		bottomButtonsPanel.add(sellItemButton);
-		bottomButtonsPanel.add(selectItemButton);
-
 
 		view.add(titleText);
 		view.add(moneyAndHealthBarsPanel);
@@ -179,7 +183,7 @@ public class MainGameScreenView extends ViewBase {
 		view.add(bottomButtonsPanel);
 		view.add(sellItemButton);
 		view.add(selectItemButton);
-
+		view.add(inventoryButton);
 
 		GUIFrame.getFrame().add(view);
 	}
