@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
 public class Shop {
-	private ArrayList<Item> items = new ArrayList<Item>();
-	private ItemList itemList = new ItemList();
-
 	// shop contains 20 items. first item is biscuit and it never disappears
 	// from shop. other 19 items are randomized and limited. the other 19 do not
 	// have to be unique. For now, they are all fish because we do not have many
@@ -39,4 +36,8 @@ public class Shop {
 	public int getSize() {
 		return items.size();
 	}
+	
+	//private vars
+	private ArrayList<Item> items = new ArrayList<Item>();
+	private ItemList itemList = new ItemList();
 }
