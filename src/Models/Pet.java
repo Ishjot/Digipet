@@ -38,24 +38,6 @@ public abstract class Pet {
 		return age;
 	}
 
-	public void updateAge() {
-		age++;
-		maxStat += 10;
-		// mood += 10;
-		hunger = (int) ((hunger + 0.5 * maxStat) % 100);
-		percentDecrease += 2;
-		// cleanliness += 10;
-	}
-
-	public int getMaxStat() {
-		return maxStat;
-	}
-
-
-	public int getAge() {
-		return age;
-	}
-
 	/**
 	 * Increases the age of pet when called, which will update all of pet's
 	 * attributes accordingly.
@@ -63,7 +45,8 @@ public abstract class Pet {
 	public void updateAge() {
 		age++;
 		maxStat += 10;
-		hunger += 10;
+		hunger += (int) ((hunger + 0.5 * maxStat) % 100);
+		percentDecrease += 2;
 	}
 
 	/**
