@@ -6,11 +6,11 @@ public class Dog extends Pet {
 		super(name, "");
 	}
 
-	
 	/**
 	 * Override of Pet's eat method, possibly useless.
 	 * 
-	 * @param food the item being fed to the Dog
+	 * @param food
+	 *            the item being fed to the Dog
 	 */
 	public void eat(Food food) {
 		eat(food, false);
