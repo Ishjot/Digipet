@@ -10,5 +10,4 @@ public abstract class ViewBase {
 		controller = control;
 	}
 
-
 }

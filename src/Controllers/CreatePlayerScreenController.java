@@ -9,7 +9,7 @@ public class CreatePlayerScreenController extends ControllerBase {
 	}
 
 	public void navigateTo(String page) {
-		if(page == "MainGameScreenView") {
+		if (page == "MainGameScreenView") {
 			MainGameScreenView newPage = new MainGameScreenView();
 			MainGameScreenController newControl = new MainGameScreenController(newPage);
 			newControl.display();

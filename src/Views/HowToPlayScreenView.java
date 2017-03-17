@@ -13,7 +13,6 @@ public class HowToPlayScreenView extends ViewBase {
 		JTextArea text = new JTextArea(message, 8, 37);
 		text.setFont(font);
 		text.setForeground(Color.BLACK);
-		//text.setBackground(Color.BLACK);
 		text.setEditable(false);
 		text.setLineWrap(true);
 		text.setWrapStyleWord(true);

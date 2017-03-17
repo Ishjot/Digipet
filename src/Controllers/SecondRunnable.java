@@ -7,31 +7,41 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class SecondRunnable implements Runnable {
-    public void run() {
-	go();
-    }
-    public void go() {
-	long x = 1;
-	while (SingletonPlayer.getPlayer().getPlayerPet().getHunger() > 0) {
-	    if (SingletonClock.getClock().getTotal() > 750 * x) {
-		SingletonPlayer.getPlayer().getPlayerPet().updateHunger();
-		System.out.println(SingletonPlayer.getPlayer().getPlayerPet().getHunger());
-		x++;
-		updateView();
-	    }
+	public void run() {
+		go();
 	}
-	System.out.println("Game Over!");
-	openGameOverScreenView();
-    }
+
+	public void go() {
+		long x = 1;
+		while (SingletonPlayer.getPlayer().getPlayerPet().getHunger() > 0) {
+			if (SingletonClock.getClock().getTotal() > 750 * x) {
+				SingletonPlayer.getPlayer().getPlayerPet().updateHunger();
+				System.out.println(SingletonPlayer.getPlayer().getPlayerPet().getHunger());
+				x++;
+				updateView();
+			}
+		}
+		System.out.println("Game Over!");
+		openGameOverScreenView();
+	}
 
 	public void updateView() {
+		int currHealth = SingletonPlayer.getPlayer().getPlayerPet().getHunger();
+		int maxHealth = SingletonPlayer.getPlayer().getPlayerPet().getMaxStat();
+		double healthPercent = (double) currHealth / maxHealth;
 		Component[] components = GUIFrame.getFrame().getContentPane().getComponents();
 		JPanel mainPanel = (JPanel) components[0];
 		JPanel moneyAndHealthPanel = (JPanel) mainPanel.getComponents()[1];
+		// update age
 		JTextArea ageText = (JTextArea) moneyAndHealthPanel.getComponents()[1];
-		ageText.setText("Level:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getAge()+1));
-		JTextArea healthText = (JTextArea) moneyAndHealthPanel.getComponents()[2];
-		healthText.setText("Health:"+Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getHunger()) + "/" + Integer.toString(SingletonPlayer.getPlayer().getPlayerPet().getMaxStat()));
+		ageText.setText("Level:" + SingletonPlayer.getPlayer().getPlayerPet().getAge());
+		// update health
+		JProgressBar healthBar = (JProgressBar) moneyAndHealthPanel.getComponents()[2];
+		healthBar.setValue(currHealth);
+		healthBar.setMaximum(maxHealth);
+		healthBar.setString(currHealth + "/" + maxHealth);
+		healthBar.setForeground((healthPercent > 0.5) ? Color.green : Color.red);
+
 	}
 
 	public void openGameOverScreenView() {
@@ -53,4 +63,5 @@ public class SecondRunnable implements Runnable {
 		GUIFrame.getFrame().add(gameOverText);
 		GUIFrame.getFrame().setVisible(true);
 	}
+
 }

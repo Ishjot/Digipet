@@ -9,6 +9,6 @@ public class MainGameScreenController extends ControllerBase {
 	}
 
 	public void navigateTo(String page) {
-		//Empty
+		// Empty
 	}
 }

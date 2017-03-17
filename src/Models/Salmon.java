@@ -1,5 +1,5 @@
 public class Salmon extends Food {
-	
+
 	/**
 	 * Default Constructor. Creates a Salmon item.
 	 */

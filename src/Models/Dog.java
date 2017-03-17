@@ -14,9 +14,5 @@ public class Dog extends Pet {
 	 */
 	public void eat(Food food) {
 		eat(food, false);
-		/*
-		 * if (food instanceof DogFood) { eat(food, true); } else eat(food,
-		 * false);
-		 */
 	}
 }

@@ -31,7 +31,7 @@ public class WelcomeScreenView extends ViewBase {
 	}
 
 	public void initViewButton(JButton button) {
-		Dimension dim = new Dimension(500,250);
+		Dimension dim = new Dimension(500, 250);
 		button.setPreferredSize(dim);
 		button.setForeground(Color.BLACK);
 	}

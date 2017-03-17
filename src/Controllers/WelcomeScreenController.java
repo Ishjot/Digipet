@@ -9,13 +9,13 @@ public class WelcomeScreenController extends ControllerBase {
 	}
 
 	public void navigateTo(String page) {
-		if(page == "HowToPlayScreenView") {
+		if (page == "HowToPlayScreenView") {
 			HowToPlayScreenView newPage = new HowToPlayScreenView();
 			HowToPlayScreenController newControl = new HowToPlayScreenController(newPage);
 			newControl.display();
 		}
 
-		else if(page == "CreatePlayerScreenView") {
+		else if (page == "CreatePlayerScreenView") {
 			CreatePlayerScreenView newPage = new CreatePlayerScreenView();
 			CreatePlayerScreenController newControl = new CreatePlayerScreenController(newPage);
 			newControl.display();

@@ -24,8 +24,7 @@ public class Shop {
 		int randNum = (int) (Math.random() * (itemList.getSize() - 1)) + 1;
 		items.add(itemList.getItem(randNum));
 	}
-	
-	
+
 	public Item sellItem(int i) {
 		if (i == 0) {
 			return items.get(0);
@@ -36,8 +35,8 @@ public class Shop {
 	public int getSize() {
 		return items.size();
 	}
-	
-	//private vars
+
+	// private vars
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private ItemList itemList = new ItemList();
 }
