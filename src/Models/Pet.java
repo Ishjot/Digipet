@@ -77,10 +77,7 @@ public abstract class Pet {
 	 * "feed up" the pet
 	 */
 	public void eat(Food food, boolean trigger) {
-		if (hunger < maxStat) {
-			hunger = (trigger) ? (hunger + food.getBase() * 2 + food.getPercent() * maxStat / 100)
-					: (hunger = hunger + food.getBase() + food.getPercent() * maxStat / 100);
-		}
+		setHunger((trigger) ? (hunger + food.getBase() * 2 + food.getPercent() * maxStat / 100) : (hunger = hunger + food.getBase() + food.getPercent() * maxStat / 100));
 	}
 
 	/**
